@@ -3,7 +3,7 @@ import { readConfig } from './config/env.js';
 
 function startServer() {
   const config = readConfig();
-  const app = createApp();
+  const app = createApp({ publicBaseUrl: config.publicBaseUrl });
   const server = app.listen(config.port, config.host, () => {
     const host = config.host.includes(':') ? `[${config.host}]` : config.host;
     console.info(
